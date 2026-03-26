@@ -323,9 +323,9 @@ def normalizar_funcoes_solve(expressao):
 
     # rad(x) → ((x)*pi/180) com parênteses explícitos para garantir precedência
     # O regex foi ajustado para ser mais robusto e só atuar em 'rad('
-    expressao = re.sub(r'\brad|$([^)]+)$|', r'((\1)*pi/180)', expressao)
+    expressao = re.sub(r'\brad\(([^)]+)\)', r'((\1)*pi/180)', expressao)
     # graus(x) → ((x)*180/pi)
-    expressao = re.sub(r'\bgraus|$([^)]+)$|', r'((\1)*180/pi)', expressao)
+    expressao = re.sub(r'\bgraus\(([^)]+)\)', r'((\1)*180/pi)', expressao)
 
     return expressao
 
